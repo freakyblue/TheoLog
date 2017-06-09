@@ -24,15 +24,16 @@
     % TheoLog 2014
     Geben Sie für die Formel
     \begin{equation*}
-      \forall x. \exists y. (P(f(x,y),z) \land (Q(x,g(x),z) \lor P(g(y),y)))
+      F = \forall x. \exists y. (p(c_{1},z) \land (q(x,c_{2},z) \lor p(c_{2},y))),
     \end{equation*}
-    folgendes an:
+    wobei $c_{1}, c_{2}$ Konstanten sind, folgendes an:
     \begin{enumerate}
-    \item die Menge aller Unterformeln;
+    \item die Menge aller Teilformeln;
     \item die Menge aller Terme;
     \item die Menge aller Variablen, mit Unterscheidung freier und gebundener
       Variablen;
-    \item ein Modell.
+    \item ein Interpretation $\mathcal{I}$ und eine Zuweisung $\mathcal{Z}$ für
+      $\mathcal{I}$, so dass $\mathcal{I}, \mathcal{Z} \models F$.
     \end{enumerate}
   \end{exercise}
 
@@ -40,61 +41,48 @@
     % TheoLog 2014
     Zeigen Sie die folgenden Aussagen:
     \begin{enumerate}
-    \item Es gilt $\{\phi\} \models \psi$ genau dann, wenn $\phi \to \psi$
+    \item Es gilt $\{F\} \models G$ genau dann, wenn $F \to G$
       allgemeingültig ist.
-    \item Es gilt $\{\phi_{1}, \dots, \phi_{k}\} \models \psi$ genau dann, wenn
-      $\bigwedge_{i=1}^{k} \phi_{i} \to \psi$ allgemeingültig ist.
+    \item Es gilt $\{F_{1}, \dots, F_{k}\} \models G$ genau dann, wenn
+      $\bigwedge_{i=1}^{k} F_{i} \to G$ allgemeingültig ist.
     \end{enumerate}
   \end{exercise}
 
   \begin{exercise}
     % TheoLog 2014
-    Geben Sie eine erfüllbare Formel in Prädikatenlogik mit Gleichheit an, die
-    kein endliches Modell besitzt.
-  \end{exercise}
-
-  \begin{exercise}
-    % TheoLog 2014
-    Seien $\phi$, $\psi$ Formeln und $x$ eine Variable.  Zeigen Sie, dass dann gilt
+    Seien $F$, $G$ Formeln und $x$ eine Variable.  Zeigen Sie, dass dann gilt
     \begin{equation*}
-      \exists x.(\phi \to \psi) \equiv (\forall x. \phi) \to (\exists x. \psi).
+      \exists x.(F \to G) \equiv \forall x. F \to \exists x. G.
     \end{equation*}
   \end{exercise}
+  \vspace*{-1.7\baselineskip}
 \end{mdframed}
-
-\clearpage
 
 \setcounter{exercise}{0}
 
-% \begin{exercise}
-%   % TheoLog 2014
-%   Welche der angegebenen Strukturen sind Modelle der folgenden Formel in
-%   Prädikatenlogik mit Gleichheit?
-%   \begin{align*}
-%     \phi \coloneqq{}& \Bigl(\forall x. R(x,x)\Bigr) \land \Bigl(\forall x. \forall y. R(x,y) \land
-%            R(y,x) \to x = y\Bigr)\\
-%     &\land \Bigl(\forall x. \forall y. \forall z. R(x,y) \land R(y,z)
-%       \to R(x,z)\Bigr)
-%   \end{align*}
-%   \begin{enumerate}
-%   \item $\mathcal{A}_{1}$ mit Grundmenge $\mathbb N$ und $R^{\mathcal{A}_{1}} =
-%     \{\,(m,n) \mid m < n \,\}$;
-%   \item $\mathcal{A}_{2}$ mit Grundmenge $\mathbb N$ und $R^{\mathcal{A}_{2}} =
-%     \{\,(n,n+1) \mid n \in \mathbb N \,\}$;
-%   \item $\mathcal{A}_{3}$ mit Grundmenge $\mathbb N$ und $R^{\mathcal{A}_{3}} =
-%     \{\,(m,n) \mid m \text{ teilt } n\,\}$;
-%   \item $\mathcal{A}_{4}$ mit Grundmenge $\Sigma^{*}$ für ein Alphabet $\Sigma$
-%     und $R^{\mathcal{A}_{4}} = \{\,(x,y) \mid \exists z \in \Sigma^{+}. xz =
-%     y\,\}$;
-%   \item $\mathcal{A}_{5}$ mit Grundmenge $\subsets{M}$ für eine Menge $M$ und
-%     $R^{\mathcal{A}_{5}} = \{\,(X,Y) \mid X \subseteq Y\,\}$;
-%   \item $\mathcal{A}_{6}$ mit Grundmenge $\mathbb N \times \mathbb N$ und
-%     \begin{equation*}
-%       R^{\mathcal{A}_{6}} = \{\,((m_{1},m_{2}),(n_{1},n_{2})) \mid m_{1} < n_{1}
-%       \lor (m_{1} = n_{1} \land m_{2} \leq n_{2})\,\}.
-%     \end{equation*}
-%   \end{enumerate}
-% \end{exercise}
+\enlargethispage{2\baselineskip}
+
+\begin{exercise}
+  % TheoLog 2014
+  Welche der angegebenen Strukturen sind Modelle der folgenden Formel?
+  \begin{equation*}
+    \Bigl(\forall x.\, p(x,x)\Bigr) \land \Bigl(\forall x, y.\, p(x,y) \land
+      p(y,x) \to x \approx y\Bigr)
+    \land \Bigl(\forall x, y, z.\, p(x,y) \land p(y,z) \to p(x,z)\Bigr)
+  \end{equation*}
+  \begin{enumerate}
+  \item $\mathcal{I}_{1}$ mit Grundmenge $\mathbb N$ und $p^{\mathcal{I}_{1}} =
+    \{\,(m,n) \mid m < n \,\}$;
+  \item $\mathcal{I}_{2}$ mit Grundmenge $\mathbb N$ und $p^{\mathcal{I}_{2}} =
+    \{\,(n,n+1) \mid n \in \mathbb N \,\}$;
+  \item $\mathcal{I}_{3}$ mit Grundmenge $\mathbb N$ und $p^{\mathcal{I}_{3}} =
+    \{\,(m,n) \mid m \text{ teilt } n\,\}$;
+  \item $\mathcal{I}_{4}$ mit Grundmenge $\Sigma^{*}$ für ein Alphabet $\Sigma$
+    und $p^{\mathcal{I}_{4}} = \{\,(x,y) \mid x \text{ is Präfix von } y\,\}$;
+  \item $\mathcal{I}_{5}$ mit Grundmenge $\subsets{M}$ für eine Menge $M$ und
+    $p^{\mathcal{I}_{5}} = \{\,(X,Y) \mid X \subseteq Y\,\}$.
+  \end{enumerate}
+\end{exercise}
 
 \begin{exercise}
   \begin{enumerate}
@@ -107,7 +95,7 @@
     \end{enumerate}
     Elemente in der Grundmenge besitzen.
   \item Geben Sie je eine erfüllbare Formel in Prädikatenlogik mit Gleichheit
-    an, so dass das zweistellige Relationensymbol $F$ in jedem Modell als der
+    an, so dass das zweistellige Relationensymbol $p$ in jedem Modell als der
     Graph einer
     \begin{enumerate}
     \item injektiven Funktion,
@@ -124,15 +112,15 @@
 \begin{exercise}
   Welche der folgenden Aussagen sind wahr?  Begründen Sie Ihre Antwort.
   \begin{enumerate}
-  \item Aus $\Gamma \subseteq \Gamma'$ und $\Gamma \models \phi$ folgt $\Gamma'
-    \models \phi$.
+  \item Aus $\Gamma \subseteq \Gamma'$ und $\Gamma \models F$ folgt $\Gamma'
+    \models F$.
   \item Jede aussagenlogische Formel ist eine prädikatenlogische Formel.
-  \item Eine prädikatenlogische Formel $\phi$ ist genau dann allgemeingültig,
-    wenn $\lnot \phi$ unerfüllbar ist.
+  \item Eine prädikatenlogische Formel $F$ ist genau dann allgemeingültig,
+    wenn $\lnot F$ unerfüllbar ist.
   \item Es gilt
     \begin{equation*}
-      \{\,\forall x, y. R(x,y) \to R(y,x), \forall x, y, z. R(x,y) \land R(y,z)
-      \to R(x,z)\,\} \models \forall x. R(x,x).
+      \{\,\forall x, y.\, p(x,y) \to p(y,x), \forall x, y, z.\, p(x,y) \land p(y,z)
+      \to p(x,z)\,\} \models \forall x.\, p(x,x).
     \end{equation*}
   \end{enumerate}
 \end{exercise}
